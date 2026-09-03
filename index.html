@@ -296,6 +296,14 @@
     font-size: 0.96rem;
     max-width: 62ch;
   }
+  project-link{ display:inline-flex;
+  align-items:center; gap: 8px; 
+  font-size: 0.88rem; 
+  font-weight: 600; 
+  text-decoration: none; 
+  color: var(--ink);
+  border-bottom: 2px solid var(--coral); 
+  padding-bottom: 2px; } .project-link:hover{ opacity: 0.7; }
   .project:nth-child(1) .project-index{ color: #FFD9CC; }
   .project:nth-child(2) .project-index{ color: #C9F1EC; }
   .project:nth-child(3) .project-index{ color: #DAD3FC; }
@@ -515,6 +523,7 @@
           <span class="chip">Gestion mémoire</span>
         </div>
         <p class="project-desc">Un registre de vols en liste doublement chaînée triée par heure de départ, une file d'attente piste en FIFO avec gestion de priorité pour les urgences, et une pile d'historique limitée à 10 actions pour permettre l'annulation. Code modulaire, encapsulé, et vérifié sans fuite mémoire avec valgrind.</p>
+        <a class="project-link" href="https://github.com/Aida-ops-web/gestion-aeroport" target="_blank" rel="noopener">Voir le code sur GitHub ↗</a>
       </div>
     </div>
 
