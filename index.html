@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aïda Diop — Génie Informatique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F5F5FB;
+    --bg-panel: #FFFFFF;
+    --ink: #14162B;
+    --ink-soft: #52546B;
+    --coral: #FF5A3C;
+    --teal: #17A398;
+    --amber: #FFC53D;
+    --violet: #6C5CE7;
+    --line: #E4E4F0;
+    --radius: 18px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1,h2,h3,.display{
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  a{ color: inherit; }
+  .wrap{
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  section{ padding: 96px 0; }
+  @media (max-width: 640px){ section{ padding: 64px 0; } }
+
+  /* ---------- nav ---------- */
+  nav{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(245,245,251,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .nav-mark{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size: 1.05rem;
+  }
+  .nav-mark span{ color: var(--coral); }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap: 28px;
+    margin:0; padding:0;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  nav ul a{
+    text-decoration:none;
+    color: var(--ink-soft);
+    transition: color .15s ease;
+  }
+  nav ul a:hover{ color: var(--ink); }
+  @media (max-width: 640px){
+    nav ul{ gap: 16px; font-size: 0.82rem; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-top: 88px;
+    padding-bottom: 72px;
+    display:grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items:center;
+  }
+  @media (max-width: 800px){ .hero{ grid-template-columns: 1fr; padding-top: 56px; } }
+
+  .eyebrow-tag{
+    display:inline-flex;
+    align-items:center;
+    gap: 8px;
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+  .eyebrow-tag .dot{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--teal);
+  }
+  .hero h1{
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.05;
+    font-weight: 700;
+  }
+  .hero h1 em{
+    font-style: normal;
+    background: linear-gradient(100deg, var(--coral), var(--amber));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p.lede{
+    margin-top: 22px;
+    max-width: 46ch;
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+  }
+  .hero-cta{
+    margin-top: 32px;
+    display:flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    display:inline-block;
+    padding: 13px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration:none;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-solid{
+    background: var(--ink);
+    color: #fff;
+  }
+  .btn-solid:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(20,22,43,0.22); }
+  .btn-ghost{
+    background: transparent;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+  }
+  .btn-ghost:hover{ transform: translateY(-2px); }
+
+  .hero-art{
+    position: relative;
+    aspect-ratio: 1/1;
+    max-width: 340px;
+    justify-self: center;
+  }
+  .hero-art svg{ width:100%; height:100%; }
+
+  /* ---------- section headers ---------- */
+  .sec-head{
+    display:flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 44px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 18px;
+  }
+  .sec-head h2{
+    font-size: 1.9rem;
+    font-weight: 700;
+  }
+  .sec-num{
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- about ---------- */
+  #apropos{ padding-top: 40px; }
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+  }
+  @media (max-width: 800px){ .about-grid{ grid-template-columns: 1fr; } }
+  .about-grid p{ color: var(--ink-soft); font-size: 1.03rem; }
+  .about-grid p + p{ margin-top: 16px; }
+  .facts{
+    display:flex;
+    flex-direction:column;
+    gap: 18px;
+  }
+  .fact{
+    border-left: 3px solid var(--coral);
+    padding-left: 16px;
+  }
+  .fact:nth-child(2){ border-color: var(--teal); }
+  .fact:nth-child(3){ border-color: var(--violet); }
+  .fact h3{
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .fact p{ margin:0; font-weight: 500; }
+
+  /* ---------- skills ---------- */
+  .skill-groups{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 700px){ .skill-groups{ grid-template-columns: 1fr; } }
+  .skill-card{
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px 26px 22px;
+  }
+  .skill-card h3{
+    font-size: 1.02rem;
+    margin-bottom: 14px;
+  }
+  .skill-tags{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag{
+    font-size: 0.86rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: #F0F0F8;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .skill-card:nth-child(1) .tag{ background: #FFF0EC; }
+  .skill-card:nth-child(2) .tag{ background: #E9FBF8; }
+  .skill-card:nth-child(3) .tag{ background: #F1EEFE; }
+  .skill-card:nth-child(4) .tag{ background: #FFF7E1; }
+
+  /* ---------- projects ---------- */
+  .project{
+    display:grid;
+    grid-template-columns: 90px 1fr;
+    gap: 24px;
+    padding: 34px 0;
+    border-top: 1px solid var(--line);
+  }
+  .project:last-child{ border-bottom: 1px solid var(--line); }
+  @media (max-width: 700px){ .project{ grid-template-columns: 1fr; gap: 12px; } }
+  .project-index{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--line);
+  }
+  .project-body h3{
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+  }
+  .project-tagline{
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    margin-bottom: 14px;
+  }
+  .project-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .chip{
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+  }
+  .project-desc{
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+    max-width: 62ch;
+  }
+  .project:nth-child(1) .project-index{ color: #FFD9CC; }
+  .project:nth-child(2) .project-index{ color: #C9F1EC; }
+  .project:nth-child(3) .project-index{ color: #DAD3FC; }
+
+  /* ---------- education ---------- */
+  .edu-item{
+    display:flex;
+    gap: 20px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+  }
+  .edu-item:last-child{ border-bottom: 1px solid var(--line); }
+  .edu-year{
+    flex: 0 0 120px;
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .edu-body h3{ font-size: 1.05rem; margin-bottom: 4px; }
+  .edu-body p{ margin:0; color: var(--ink-soft); font-size: 0.94rem; }
+
+  /* ---------- contact ---------- */
+  .contact-panel{
+    background: var(--ink);
+    color: #fff;
+    border-radius: 24px;
+    padding: 56px;
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 32px;
+    align-items:center;
+    position: relative;
+    overflow:hidden;
+  }
+  @media (max-width: 700px){ .contact-panel{ grid-template-columns: 1fr; padding: 36px 26px; } }
+  .contact-panel::before{
+    content:"";
+    position:absolute;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--coral) 0%, transparent 70%);
+    opacity: 0.35;
+    top: -140px; right: -100px;
+  }
+  .contact-panel h2{
+    font-size: 2rem;
+    position: relative;
+  }
+  .contact-panel p{
+    color: #C9C9DA;
+    margin-top: 14px;
+    max-width: 40ch;
+    position: relative;
+  }
+  .contact-list{
+    display:flex;
+    flex-direction:column;
+    gap: 14px;
+    position: relative;
+  }
+  .contact-list a{
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    padding: 16px 18px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    transition: background .15s ease;
+  }
+  .contact-list a:hover{ background: rgba(255,255,255,0.12); }
+  .contact-list span.label{
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9797B0;
+  }
+  .contact-list span.value{ font-weight: 600; }
+
+  footer{
+    text-align:center;
+    padding: 32px 0 48px;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-mark">Aïda<span>.</span>Diop</div>
+    <ul>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#formation">Formation</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap hero">
+  <div>
+    <div class="eyebrow-tag"><span class="dot"></span>Disponible pour un stage</div>
+    <h1>Je construis des systèmes qui <em>tiennent la route</em>.</h1>
+    <p class="lede">Étudiante en Génie Informatique à l'Université Gaston Berger de Saint-Louis. Je conçois des applications, des bases de données et des architectures sécurisées — de l'algorithme jusqu'à l'interface.</p>
+    <div class="hero-cta">
+      <a href="#projets" class="btn btn-solid">Voir mes projets</a>
+      <a href="#contact" class="btn btn-ghost">Me contacter</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="170" cy="170" r="150" fill="#FFF0EC"/>
+      <rect x="70" y="60" width="130" height="130" rx="20" fill="#17A398" opacity="0.9"/>
+      <circle cx="235" cy="215" r="70" fill="#FFC53D"/>
+      <rect x="150" y="190" width="100" height="100" rx="18" fill="#6C5CE7" opacity="0.85" transform="rotate(8 150 190)"/>
+      <rect x="90" y="150" width="70" height="70" rx="14" fill="#FF5A3C"/>
+    </svg>
+  </div>
+</header>
+
+<section id="apropos">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>À propos</h2>
+      <span class="sec-num">01</span>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>Je suis en L2 Génie Informatique au CFPP, sur le campus de l'Université Gaston Berger à Saint-Louis. J'aime particulièrement le moment où une structure de données bien choisie ou une base bien modélisée rend un problème compliqué soudainement simple.</p>
+        <p>Mes projets vont de la manipulation bas niveau en C à la conception d'applications de gestion complètes, en passant par la sécurisation des échanges de données. Mon objectif après la Licence : intégrer le Master public en Informatique de l'UGB, tout en continuant à construire des projets concrets.</p>
+      </div>
+      <div class="facts">
+        <div class="fact">
+          <h3>Basée à</h3>
+          <p>Saint-Louis, Sénégal</p>
+        </div>
+        <div class="fact">
+          <h3>Langues</h3>
+          <p>Français, Anglais, Espagnol</p>
+        </div>
+        <div class="fact">
+          <h3>Profil</h3>
+          <p>Rigoureuse, adaptable, autonome en équipe</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="competences">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Compétences</h2>
+      <span class="sec-num">02</span>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-card">
+        <h3>Programmation</h3>
+        <div class="skill-tags">
+          <span class="tag">Algorithmique</span>
+          <span class="tag">C</span>
+          <span class="tag">Java</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">PHP</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Bases de données</h3>
+        <div class="skill-tags">
+          <span class="tag">Merise (MCD/MLD)</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Oracle</span>
+          <span class="tag">MySQL / PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Web & outils</h3>
+        <div class="skill-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">VB.NET</span>
+          <span class="tag">UML</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Systèmes & réseaux</h3>
+        <div class="skill-tags">
+          <span class="tag">Windows</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Sécurité informatique</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Projets</h2>
+      <span class="sec-num">03</span>
+    </div>
+
+    <div class="project">
+      <div class="project-index">01</div>
+      <div class="project-body">
+        <h3>Système de gestion d'aéroport</h3>
+        <p class="project-tagline">Registre des vols, file de décollage et historique d'actions — en C pur.</p>
+        <div class="project-stack">
+          <span class="chip">C</span>
+          <span class="chip">Structures de données</span>
+          <span class="chip">Gestion mémoire</span>
+        </div>
+        <p class="project-desc">Un registre de vols en liste doublement chaînée triée par heure de départ, une file d'attente piste en FIFO avec gestion de priorité pour les urgences, et une pile d'historique limitée à 10 actions pour permettre l'annulation. Code modulaire, encapsulé, et vérifié sans fuite mémoire avec valgrind.</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-index">02</div>
+      <div class="project-body">
+        <h3>Application de facturation</h3>
+        <p class="project-tagline">Gestion clients, produits, commandes et factures — en VB.NET.</p>
+        <div class="project-stack">
+          <span class="chip">VB.NET</span>
+          <span class="chip">Access</span>
+          <span class="chip">Merise</span>
+        </div>
+        <p class="project-desc">Conception complète du modèle de données (MCD, MLD, MTD) suivie du développement d'une application de gestion avec formulaires pour les clients, produits, commandes et factures, connectée à une base Access.</p>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-index">03</div>
+      <div class="project-body">
+        <h3>Sécurité et sauvegarde des données</h3>
+        <p class="project-tagline">Interconnexion VPN et sauvegardes chiffrées pour protéger les échanges.</p>
+        <div class="project-stack">
+          <span class="chip">VPN (Hamachi)</span>
+          <span class="chip">Uranium Backup</span>
+          <span class="chip">Chiffrement</span>
+        </div>
+        <p class="project-desc">Projet professionnel autour de la sécurisation des données d'une structure : mise en place d'une interconnexion VPN entre deux sites et d'un système de sauvegarde chiffrée automatisé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Formation</h2>
+      <span class="sec-num">04</span>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2024 — présent</div>
+      <div class="edu-body">
+        <h3>Licence en Génie Informatique (L2)</h3>
+        <p>CFPP – Université Gaston Berger (UGB), Saint-Louis. Objectif : Master public en Informatique de l'UGB après la Licence.</p>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">Baccalauréat</div>
+      <div class="edu-body">
+        <h3>Série S2</h3>
+        <p>Formation scientifique générale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-panel">
+      <div>
+        <h2>Discutons de votre prochain projet.</h2>
+        <p>Ouverte aux stages et opportunités en développement web et administration de bases de données.</p>
+      </div>
+      <div class="contact-list">
+        <a href="mailto:dioplemer312@gmail.com">
+          <span class="label">Email</span>
+          <span class="value">dioplemer312@gmail.com</span>
+        </a>
+        <a href="tel:+221783566420">
+          <span class="label">Téléphone</span>
+          <span class="value">+221 78 356 64 20</span>
+        </a>
+        <a href="#">
+          <span class="label">Localisation</span>
+          <span class="value">Saint-Louis, Sénégal</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Aïda Diop. Construit avec HTML, CSS &amp; un peu de café.
+</footer>
+
+</body>
+</html>
