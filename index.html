@@ -308,6 +308,53 @@
   .project:nth-child(2) .project-index{ color: #C9F1EC; }
   .project:nth-child(3) .project-index{ color: #DAD3FC; }
 
+  /* ---------- project fan gallery ---------- */
+  .project-fan{
+    position: relative;
+    height: 170px;
+    margin: 20px auto 28px;
+    max-width: 460px;
+  }
+  .project-fan img{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 150px;
+    height: 105px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 14px rgba(20,22,43,0.14);
+    cursor: zoom-in;
+    transition: transform .3s ease;
+  }
+  .fan-3 img:nth-child(1){ transform: translateX(-50%) translateX(-30px) rotate(-6deg); z-index:1; }
+  .fan-3 img:nth-child(2){ transform: translateX(-50%) rotate(0deg); z-index:2; }
+  .fan-3 img:nth-child(3){ transform: translateX(-50%) translateX(30px) rotate(6deg); z-index:1; }
+  .fan-3:hover img:nth-child(1){ transform: translateX(-50%) translateX(-140px) rotate(-10deg) translateY(-6px); z-index:3; }
+  .fan-3:hover img:nth-child(2){ transform: translateX(-50%) translateY(-10px); z-index:4; }
+  .fan-3:hover img:nth-child(3){ transform: translateX(-50%) translateX(140px) rotate(10deg) translateY(-6px); z-index:3; }
+
+  .fan-5 img:nth-child(1){ transform: translateX(-50%) translateX(-45px) rotate(-10deg); z-index:1; }
+  .fan-5 img:nth-child(2){ transform: translateX(-50%) translateX(-20px) rotate(-4deg); z-index:2; }
+  .fan-5 img:nth-child(3){ transform: translateX(-50%) rotate(0deg); z-index:3; }
+  .fan-5 img:nth-child(4){ transform: translateX(-50%) translateX(20px) rotate(4deg); z-index:2; }
+  .fan-5 img:nth-child(5){ transform: translateX(-50%) translateX(45px) rotate(10deg); z-index:1; }
+  .fan-5:hover img:nth-child(1){ transform: translateX(-50%) translateX(-190px) rotate(-12deg) translateY(-8px); z-index:5; }
+  .fan-5:hover img:nth-child(2){ transform: translateX(-50%) translateX(-95px) rotate(-6deg) translateY(-8px); z-index:5; }
+  .fan-5:hover img:nth-child(3){ transform: translateX(-50%) translateY(-12px); z-index:6; }
+  .fan-5:hover img:nth-child(4){ transform: translateX(-50%) translateX(95px) rotate(6deg) translateY(-8px); z-index:5; }
+  .fan-5:hover img:nth-child(5){ transform: translateX(-50%) translateX(190px) rotate(12deg) translateY(-8px); z-index:5; }
+
+  @media (max-width: 700px){
+    .fan-5:hover img:nth-child(1){ transform: translateX(-50%) translateX(-110px) rotate(-12deg) translateY(-8px); }
+    .fan-5:hover img:nth-child(2){ transform: translateX(-50%) translateX(-55px) rotate(-6deg) translateY(-8px); }
+    .fan-5:hover img:nth-child(4){ transform: translateX(-50%) translateX(55px) rotate(6deg) translateY(-8px); }
+    .fan-5:hover img:nth-child(5){ transform: translateX(-50%) translateX(110px) rotate(12deg) translateY(-8px); }
+    .fan-3:hover img:nth-child(1){ transform: translateX(-50%) translateX(-90px) rotate(-10deg) translateY(-6px); }
+    .fan-3:hover img:nth-child(3){ transform: translateX(-50%) translateX(90px) rotate(10deg) translateY(-6px); }
+  }
+
   /* ---------- education ---------- */
   .edu-item{
     display:flex;
@@ -523,6 +570,13 @@
           <span class="chip">Gestion mémoire</span>
         </div>
         <p class="project-desc">Un registre de vols en liste doublement chaînée triée par heure de départ, une file d'attente piste en FIFO avec gestion de priorité pour les urgences, et une pile d'historique limitée à 10 actions pour permettre l'annulation. Code modulaire, encapsulé, et vérifié sans fuite mémoire avec valgrind.</p>
+
+        <div class="project-fan fan-3">
+          <img src="https://github.com/Aida-ops-web/gestion-aeroport/blob/main/menu%20aeroport.png?raw=true" alt="Menu principal du programme">
+          <img src="https://github.com/Aida-ops-web/gestion-aeroport/blob/main/jeu%20de%20donnees.png?raw=true" alt="Jeu de données de vols">
+          <img src="https://github.com/Aida-ops-web/gestion-aeroport/blob/main/historique%20des%20actions%20contenues%20dans%20le%20jeu%20de%20donnees.png?raw=true" alt="Historique des actions">
+        </div>
+
         <a class="project-link" href="https://github.com/Aida-ops-web/gestion-aeroport" target="_blank" rel="noopener">Voir le code sur GitHub ↗</a>
       </div>
     </div>
@@ -538,24 +592,43 @@
           <span class="chip">Merise</span>
         </div>
         <p class="project-desc">Conception complète du modèle de données (MCD, MLD, MTD) suivie du développement d'une application de gestion avec formulaires pour les clients, produits, commandes et factures, connectée à une base Access.</p>
+
+        <div class="project-fan fan-5">
+          <img src="https://github.com/Aida-ops-web/gestion-des-clients/blob/main/page%20de%20connexion.png?raw=true" alt="Écran de connexion">
+          <img src="https://github.com/Aida-ops-web/gestion-des-clients/blob/main/menu.png?raw=true" alt="Menu principal">
+          <img src="https://github.com/Aida-ops-web/gestion-des-clients/blob/main/client.png?raw=true" alt="Formulaire Client">
+          <img src="https://github.com/Aida-ops-web/gestion-des-clients/blob/main/produit.png?raw=true" alt="Formulaire Produit">
+          <img src="https://github.com/Aida-ops-web/gestion-des-clients/blob/main/commande.png?raw=true" alt="Formulaire Commande">
+        </div>
+
         <a class="project-link" href="https://github.com/Aida-ops-web/gestion-des-clients" target="_blank" rel="noopener">Voir le code sur GitHub ↗</a>
       </div>
     </div>
 
     <div class="project">
-  <div class="project-index">03</div>
-  <div class="project-body">
-    <h3>Sécurité et sauvegarde des données</h3>
-    <p class="project-tagline">Interconnexion VPN et sauvegardes chiffrées pour protéger les échanges.</p>
-    <div class="project-stack">
-      <span class="chip">VPN (Hamachi)</span>
-      <span class="chip">Uranium Backup</span>
-      <span class="chip">Chiffrement</span>
+      <div class="project-index">03</div>
+      <div class="project-body">
+        <h3>Sécurité et sauvegarde des données</h3>
+        <p class="project-tagline">Interconnexion VPN et sauvegardes chiffrées pour protéger les échanges.</p>
+        <div class="project-stack">
+          <span class="chip">VPN (Hamachi)</span>
+          <span class="chip">Uranium Backup</span>
+          <span class="chip">Chiffrement</span>
+        </div>
+        <p class="project-desc">Projet professionnel autour de la sécurisation des données d'une structure : mise en place d'une interconnexion VPN entre deux sites et d'un système de sauvegarde chiffrée automatisé.</p>
+
+        <div class="project-fan fan-5">
+          <img src="https://github.com/Aida-ops-web/projet-professionnel/blob/main/creation%20reseau.png?raw=true" alt="Création du réseau Hamachi">
+          <img src="https://github.com/Aida-ops-web/projet-professionnel/blob/main/test%20ping.png?raw=true" alt="Test de ping réussi">
+          <img src="https://github.com/Aida-ops-web/projet-professionnel/blob/main/montage%20des%20lecteurs%20reseau.png?raw=true" alt="Montage des lecteurs réseau">
+          <img src="https://github.com/Aida-ops-web/projet-professionnel/blob/main/validation%20d'une%20sauvegarde.png?raw=true" alt="Validation d'une sauvegarde">
+          <img src="https://github.com/Aida-ops-web/projet-professionnel/blob/main/journal.jpeg?raw=true" alt="Journal des sauvegardes">
+        </div>
+
+        <a class="project-link" href="https://github.com/Aida-ops-web/projet-professionnel" target="_blank" rel="noopener">Voir le code sur GitHub ↗</a>
+      </div>
     </div>
-    <p class="project-desc">Projet professionnel autour de la sécurisation des données d'une structure : mise en place d'une interconnexion VPN entre deux sites et d'un système de sauvegarde chiffrée automatisé.</p>
-    <a class="project-link" href="https://github.com/Aida-ops-web/projet-professionnel" target="_blank" rel="noopener">Voir le code sur GitHub ↗</a>
   </div>
-</div>
 </section>
 
 <section id="formation">
