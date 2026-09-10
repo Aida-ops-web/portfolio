@@ -296,17 +296,22 @@
     font-size: 0.96rem;
     max-width: 62ch;
   }
-  .project-link{ display:inline-flex;
-  align-items:center; gap: 8px; 
-  font-size: 0.88rem; 
-  font-weight: 600; 
-  text-decoration: none; 
-  color: var(--ink);
-  border-bottom: 2px solid var(--coral); 
-  padding-bottom: 2px; } .project-link:hover{ opacity: 0.7; }
+  .project-link{ 
+    display:inline-flex;
+    align-items:center; 
+    gap: 8px; 
+    font-size: 0.88rem; 
+    font-weight: 600; 
+    text-decoration: none; 
+    color: var(--ink);
+    border-bottom: 2px solid var(--coral); 
+    padding-bottom: 2px; 
+  } 
+  .project-link:hover{ opacity: 0.7; }
   .project:nth-child(1) .project-index{ color: #FFD9CC; }
   .project:nth-child(2) .project-index{ color: #C9F1EC; }
   .project:nth-child(3) .project-index{ color: #DAD3FC; }
+  .project:nth-child(4) .project-index{ color: #FFF1C5; }
 
   /* ---------- project gallery (vignettes avec légende au survol) ---------- */
   .project-gallery{
@@ -659,6 +664,42 @@
         </div>
 
         <a class="project-link" href="https://github.com/Aida-ops-web/projet-professionnel" target="_blank" rel="noopener">Voir le code sur GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-index">04</div>
+      <div class="project-body">
+        <h3>Gestion de bibliothèque</h3>
+        <p class="project-tagline">Application web complète : catalogue, emprunts, réservations et espace bibliothécaire — en PHP &amp; MySQL.</p>
+        <div class="project-stack">
+          <span class="chip">PHP</span>
+          <span class="chip">MySQL</span>
+          <span class="chip">PDO</span>
+          <span class="chip">Chart.js</span>
+        </div>
+        <p class="project-desc">Conception d'un MCD complet (9 entités) puis développement d'une application MVC en PHP natif : authentification sécurisée, catalogue avec recherche avancée, emprunt/retour avec transactions PDO, système de réservation avec file d'attente, pénalités de retard automatiques, notifications, et un espace bibliothécaire avec tableau de bord statistique (Chart.js).</p>
+
+        <div class="project-gallery">
+          <a href="https://github.com/Aida-ops-web/gestion-bibliotheque-php-/blob/main/catalogue.png?raw=true" target="_blank" rel="noopener">
+            <img src="https://github.com/Aida-ops-web/gestion-bibliotheque-php-/blob/main/catalogue.png?raw=true" alt="Catalogue des livres">
+            <div class="gallery-caption">Catalogue</div>
+          </a>
+          <a href="https://github.com/Aida-ops-web/gestion-bibliotheque-php-/blob/main/connexion_inscription.png?raw=true" target="_blank" rel="noopener">
+            <img src="https://github.com/Aida-ops-web/gestion-bibliotheque-php-/blob/main/connexion_inscription.png?raw=true" alt="Connexion et inscription">
+            <div class="gallery-caption">Connexion / Inscription</div>
+          </a>
+          <a href="https://github.com/Aida-ops-web/gestion-bibliotheque-php-/blob/main/emprunts.png?raw=true" target="_blank" rel="noopener">
+            <img src="https://github.com/Aida-ops-web/gestion-bibliotheque-php-/blob/main/emprunts.png?raw=true" alt="Gestion des emprunts">
+            <div class="gallery-caption">Gestion des emprunts</div>
+          </a>
+          <a href="https://github.com/Aida-ops-web/gestion-bibliotheque-php-/blob/main/statistique.png?raw=true" target="_blank" rel="noopener">
+            <img src="https://github.com/Aida-ops-web/gestion-bibliotheque-php-/blob/main/statistique.png?raw=true" alt="Statistiques avec graphiques">
+            <div class="gallery-caption">Statistiques</div>
+          </a>
+        </div>
+
+        <a class="project-link" href="https://github.com/Aida-ops-web/gestion-bibliotheque-php-" target="_blank" rel="noopener">Voir le code sur GitHub ↗</a>
       </div>
     </div>
   </div>
